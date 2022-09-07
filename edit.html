@@ -1,0 +1,103 @@
+<!DOCTYPE html5>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="theme-color" content="#eff3fe" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#1f2125" media="(prefers-color-scheme: dark)">
+    <meta name="description"
+        content="Quickly capture what's on your mind and easily organize or find it later in search.">
+    <title></title>
+    <link rel="icon" href="icons/icon.png">
+    <link rel="apple-touch-icon" href="icons/icon.png">
+    <link rel="manifest" href="manifest.json">
+    <!-- Material Web Fonts and Icons. -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Google+Sans+Display|Google+Sans:400,500|Google+Sans+Text:400,500&display=swap">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:wght,FILL@500,0..1" />
+    <!-- Material Design -->
+    <link rel="stylesheet" href="md3/styles/components.css">
+    <link rel="stylesheet" href="md3/styles/styles.css">
+    <!-- App styles -->
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+
+<body>
+    <header class="md3-topbar">
+        <section class="md3-topbar__leading" id="edit-topbar-leading">
+            <button class="md3-btn md3-btn--icon md3-topbar__btn" onclick="location.href = 'index.html'">
+                <i class="material-symbols-rounded md3-btn__icon">arrow_back</i>
+            </button>
+            <span class="md3-topbar__title" id="edit-topbar-title"></span>
+        </section>
+        <section class="md3-topbar__trailing">
+            <button class="md3-btn md3-btn--icon md3-topbar__btn" onclick="openDialog('edit-notes-title-dialog')">
+                <i class="material-symbols-rounded md3-btn__icon">edit</i>
+            </button>
+            <button class="md3-btn md3-btn--icon md3-topbar__btn" click="edit-notes-menu">
+                <i class="material-symbols-rounded md3-btn__icon">more_vert</i>
+            </button>
+        </section>
+    </header>
+
+    <div class="md3-menu" id="edit-notes-menu">
+        <div class="md3-menu__item" onclick="changeDarkMode()">
+            <span class="material-symbols-rounded md3-menu__item__icon">brightness_4</span>
+            <span class="md3-menu__item__text">Dark mode</span>
+        </div>
+        <div class="md3-menu__item" id="edit-notes-share">
+            <span class="material-symbols-rounded md3-menu__item__icon">share</span>
+            <span class="md3-menu__item__text">Share a copy</span>
+        </div>
+    </div>
+
+    <dialog class="md3-dialog" id="edit-notes-title-dialog">
+        <span class="md3-dialog__headline">Edit title</span>
+        <span id="edit-notes-title-warning">Title must have less than 30 characters</span>
+        <input type="text" class="md3-input--text" placeholder="Title" id="edit-notes-title-input">
+        <button class="md3-btn md3-btn--filled md3-dialog__btn" id="edit-notes-title-btn">
+            <span class="md3-btn__text">Save</span>
+        </button>
+    </dialog>
+
+    <dialog class="md3-dialog" id="edit-notes-tags-dialog">
+        <span class="md3-dialog__headline">Edit title</span>
+        <span id="edit-notes-tags-warning">Title must have less than 16 characters</span>
+        <input type="text" class="md3-input--text" placeholder="Title" id="edit-notes-tags-input">
+        <button class="md3-btn md3-btn--filled md3-dialog__btn" id="edit-notes-tags-btn">
+            <span class="md3-btn__text">Add</span>
+        </button>
+    </dialog>
+
+    <main>
+        <div id="edit-notes-tags">
+            <button class="md3-btn md3-btn--icon" onclick="openDialog('edit-notes-tags-dialog')">
+                <span class="material-symbols-rounded material-symbols-rounded-outlined md3-btn__icon">new_label</span>
+            </button>
+        </div>
+        <textarea class="md3-input--textarea" id="edit-notes-body"></textarea>
+    </main>
+
+    <!-- Material Design -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/2.4.2/chroma.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vibrant.js/1.0.0/Vibrant.min.js"></script>
+    <script src="md3/script/monet.js"></script>
+    <script src="md3/script/material-you.js"></script>
+    <!-- App scripts -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker
+                .register('/sw.js')
+                .then(function () { console.log("Service Worker Registered"); });
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/serviceworker-cache-polyfill@4.0.0/index.js"></script>
+    <script src="app/script.js"></script>
+    <script src="app/notes.js"></script>
+    <script src="app/edit.js"></script>
+</body>
+
+</html>

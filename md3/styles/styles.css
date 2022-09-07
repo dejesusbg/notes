@@ -1,0 +1,207 @@
+/* Color system */
+body {
+    margin: 0 !important;
+    background: var(--color-background);
+    padding: 1rem !important;
+    color: var(--color-on-background);
+    -webkit-tap-highlight-color: rgba(255 255 255/0.2);
+}
+
+body.light {
+    --color-primary: var(--primary-40);
+    --color-on-primary: var(--primary-100);
+    --color-primary-container: var(--primary-90);
+    --color-on-primary-container: var(--primary-10);
+    --color-secondary: var(--secondary-40);
+    --color-on-secondary: var(--secondary-100);
+    --color-secondary-container: var(--secondary-90);
+    --color-on-secondary-container: var(--secondary-10);
+    --color-tertiary: var(--tertiary-40);
+    --color-on-tertiary: var(--tertiary-100);
+    --color-tertiary-container: var(--tertiary-90);
+    --color-on-tertiary-container: var(--tertiary-10);
+    --color-background: var(--neutral-99);
+    --color-on-background: var(--neutral-10);
+    --color-surface: var(--neutral-99);
+    --color-on-surface: var(--neutral-10);
+    --color-surface-variant: var(--neutral-variant-90);
+    --color-on-surface-variant: var(--neutral-variant-30);
+    --color-outline: var(--neutral-variant-50);
+    --color-inverse-on-surface: var(--neutral-95);
+    --color-inverse-surface: var(--neutral-20);
+    --color-surface-e1: var(--neutral-99-e1);
+    --color-surface-variant-e1: var(--neutral-variant-90-e1);
+    --color-inverse-surface-e1: var(--neutral-20-e1);
+    --color-surface-e2: var(--neutral-99-e2);
+    --color-surface-variant-e2: var(--neutral-variant-90-e2);
+    --color-inverse-surface-e2: var(--neutral-20-e2);
+    --color-surface-e3: var(--neutral-99-e3);
+    --color-surface-variant-e3: var(--neutral-variant-90-e3);
+    --color-inverse-surface-e3: var(--neutral-20-e3);
+    --color-surface-e4: var(--neutral-99-e4);
+    --color-surface-variant-e4: var(--neutral-variant-90-e4);
+    --color-inverse-surface-e4: var(--neutral-20-e4);
+    --hover: rgba(0, 0, 0, 0.05);
+    --ripple: rgb(0 0 0 / 50%);
+}
+
+body.dark {
+    --color-primary: var(--primary-80);
+    --color-on-primary: var(--primary-20);
+    --color-primary-container: var(--primary-30);
+    --color-on-primary-container: var(--primary-90);
+    --color-secondary: var(--secondary-80);
+    --color-on-secondary: var(--secondary-20);
+    --color-secondary-container: var(--secondary-30);
+    --color-on-secondary-container: var(--secondary-90);
+    --color-tertiary: var(--tertiary-80);
+    --color-on-tertiary: var(--tertiary-20);
+    --color-tertiary-container: var(--tertiary-30);
+    --color-on-tertiary-container: var(--tertiary-90);
+    --color-background: var(--neutral-10);
+    --color-on-background: var(--neutral-90);
+    --color-surface: var(--neutral-10);
+    --color-on-surface: var(--neutral-90);
+    --color-surface-variant: var(--neutral-variant-30);
+    --color-on-surface-variant: var(--neutral-variant-80);
+    --color-outline: var(--neutral-variant-60);
+    --color-inverse-on-surface: var(--neutral-10);
+    --color-inverse-surface: var(--neutral-90);
+    --color-surface-e1: var(--neutral-10-e1);
+    --color-surface-variant-e1: var(--neutral-variant-30-e1);
+    --color-inverse-surface-e1: var(--neutral-90-e1);
+    --color-surface-e2: var(--neutral-10-e2);
+    --color-surface-variant-e2: var(--neutral-variant-30-e2);
+    --color-inverse-surface-e2: var(--neutral-90-e2);
+    --color-surface-e3: var(--neutral-10-e3);
+    --color-surface-variant-e3: var(--neutral-variant-30-e3);
+    --color-inverse-surface-e3: var(--neutral-90-e3);
+    --color-surface-e4: var(--neutral-10-e4);
+    --color-surface-variant-e4: var(--neutral-variant-30-e4);
+    --color-inverse-surface-e4: var(--neutral-90-e4);
+    --hover: rgba(255, 255, 255, 0.05);
+    --ripple: rgb(255 255 255 / 50%);
+}
+
+/* Typography */
+:root {
+    --font-display-l: 500 3.6rem/4rem Google Sans, Roboto, sans-serif;
+    --font-display-m: 500 2.75rem/3.25rem Google Sans, Roboto, sans-serif;
+    --font-display-s: 500 2.25rem/2.75rem Google Sans, Roboto, sans-serif;
+    --font-headline-l: 500 2rem/2.5rem Google Sans, Roboto, sans-serif;
+    --font-headline-m: 500 1.75rem/2.25rem Google Sans, Roboto, sans-serif;
+    --font-headline-s: 500 1.5rem/2rem Google Sans, Roboto, sans-serif;
+    --font-title-l: 500 1.4rem/1.75rem Google Sans, Roboto, sans-serif;
+    --font-title-m: 500 1rem/1.5rem Google Sans, Roboto, sans-serif;
+    --font-title-s: 500 .9rem/1.25rem Google Sans, Roboto, sans-serif;
+    --font-label-l: 500 .9rem/1.25rem Google Sans, Roboto, sans-serif;
+    --font-label-m: 500 .8rem/1rem Google Sans, Roboto, sans-serif;
+    --font-label-s: 500 .7rem/1rem Google Sans, Roboto, sans-serif;
+    --font-body-l: 400 1rem/1.5rem Google Sans, Roboto, sans-serif;
+    --font-body-m: 400 .9rem/1.25rem Google Sans, Roboto, sans-serif;
+    --font-body-s: 400 .8rem/1rem Google Sans, Roboto, sans-serif;
+    font-family: Google Sans, Roboto, sans-serif;
+    font-size: 105%;
+}
+
+@media screen and (max-width: 1024px) {
+    :root {
+        font-size: 100%;
+    }
+}
+
+@media screen and (max-width: 512px) {
+    :root {
+        font-size: 95%;
+    }
+}
+
+h1 {
+    font: var(--font-display-l);
+}
+
+h2 {
+    font: var(--font-display-m);
+}
+
+h3 {
+    font: var(--font-display-s);
+}
+
+h4 {
+    font: var(--font-headline-l);
+}
+
+h5 {
+    font: var(--font-headline-m);
+}
+
+h6 {
+    font-size: var(--font-headline-s);
+}
+
+p {
+    font-size: var(--font-body-l);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 1rem;
+}
+
+hr {
+    opacity: 50%;
+    border-top: 1px solid var(--color-outline);
+}
+
+.material-symbols-rounded {
+    font-variation-settings:
+        'FILL' 1,
+        'wght' 500,
+        'GRAD' 0,
+        'opsz' 48
+}
+
+.material-symbols-rounded-outlined {
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 500,
+        'GRAD' 0,
+        'opsz' 48
+}
+
+/* Ripple */
+.ripple {
+    position: relative;
+    transform: translate3d(0, 0, 0);
+    overflow: hidden;
+}
+
+.ripple:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    opacity: 0;
+    transform: scale(10, 10);
+    display: block;
+    background-image: radial-gradient(circle, var(--ripple) 10%, transparent 10%);
+    background-position: 50%;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+    transition: transform .3s, opacity .3s;
+}
+
+.ripple:active:after {
+    opacity: 30%;
+    transform: scale(0, 0);
+    transition: 0s;
+}
+

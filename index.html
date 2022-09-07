@@ -1,0 +1,125 @@
+<!DOCTYPE html5>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="theme-color" content="#eff3fe" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#1f2125" media="(prefers-color-scheme: dark)">
+    <meta name="description"
+        content="Quickly capture what's on your mind and easily organize or find it later in search.">
+    <title>Notes</title>
+    <link rel="icon" href="icons/icon.png">
+    <link rel="apple-touch-icon" href="icons/icon.png">
+    <link rel="manifest" href="manifest.json">
+    <!-- Material Web Fonts and Icons. -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Google+Sans+Display|Google+Sans:400,500|Google+Sans+Text:400,500&display=swap">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:wght,FILL@500,0..1" />
+    <!-- Material Design -->
+    <link rel="stylesheet" href="md3/styles/components.css">
+    <link rel="stylesheet" href="md3/styles/styles.css">
+    <!-- App styles -->
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+
+<body>
+    <nav class="md3-nav">
+        <button class="md3-btn md3-btn--fab md3-btn--fab--tertiary md3-nav__btn" id="create-notes-fab"
+            onclick="openDialog('create-notes-dialog')">
+            <i class="material-symbols-rounded material-symbols-rounded-outlined md3-btn--fab__icon">create</i>
+        </button>
+        <input class="md3-nav__item-radio" type="radio" name="activity" id="to-notes" checked>
+        <a class="md3-nav__item" href="#" tabindex="-1">
+            <label class="md3-nav__item__label" for="to-notes">
+                <i class="material-symbols-rounded md3-nav__item__icon">emoji_objects</i>
+            </label>
+        </a>
+        <input class="md3-nav__item-radio" type="radio" name="activity" id="to-settings">
+        <a class="md3-nav__item" href="settings.html" tabindex="-1">
+            <label class="md3-nav__item__label" for="to-settings" onclick="location.href='settings.html'">
+                <i class="material-symbols-rounded md3-nav__item__icon">settings</i>
+            </label>
+        </a>
+    </nav>
+
+    <header class="md3-topbar md3-topbar--search" id="search-notes-topbar">
+        <section class="md3-topbar__leading">
+            <span class="md3-topbar__title">Notes</span>
+        </section>
+        <section class="md3-topbar__trailing">
+            <input type="search" class="md3-topbar__search" placeholder="Search" id="search-notes-searchbar"></input>
+            <button class="md3-btn md3-btn--icon md3-topbar__btn" onclick="openDialog('tips-dialog')"
+                style="display: flex !important;">
+                <i class="material-symbols-rounded material-symbols-rounded-outlined md3-btn__icon">info</i>
+            </button>
+        </section>
+    </header>
+
+    <header class="md3-topbar md3-topbar--contextual" id="select-notes-topbar">
+        <section class="md3-topbar__leading">
+            <button class="md3-btn md3-btn--icon md3-topbar__btn" id="select-notes-close">
+                <i class="material-symbols-rounded md3-btn__icon">close</i>
+            </button>
+            <span class="md3-topbar__title" id="select-notes-number"></span>
+        </section>
+        <section class="md3-topbar__trailing">
+            <button class="md3-btn md3-btn--icon md3-topbar__btn" id="select-notes-all">
+                <i class="material-symbols-rounded md3-btn__icon">select_all</i>
+            </button>
+            <button class="md3-btn md3-btn--icon md3-topbar__btn" id="select-notes-delete">
+                <i class="material-symbols-rounded material-symbols-rounded-outlined md3-btn__icon">delete</i>
+            </button>
+        </section>
+    </header>
+
+    <dialog class="md3-dialog" id="create-notes-dialog">
+        <span class="md3-dialog__headline">New note</span>
+        <span id="create-notes-warning">Title must have less than 30 characters</span>
+        <input type="text" class="md3-input--text" placeholder="Title" id="create-notes-input" value="New note">
+        <button class="md3-btn md3-btn--filled md3-dialog__btn" id="create-notes-btn">
+            <span class="md3-btn__text">Create</span>
+        </button>
+    </dialog>
+
+    <dialog class="md3-dialog" id="tips-dialog">
+        <span class="md3-dialog__headline">Tips</span>
+        <span class="md3-dialog__text">
+            <ul>
+                <li>To select a note, tap on it.</li>
+                <li>To open a note, double tap on it.</li>
+            </ul>
+        </span>
+    </dialog>
+
+    <main>
+        <div id="notes-noteslist--empty">
+            <i class="material-symbols-rounded" id="notes-noteslist--empty__icon">notes</i>
+            <span id="notes-noteslist--empty__text">There's no notes</span>
+            <span id="notes-noteslist--empty__subtext">Tap the button to add one</span>
+        </div>
+    </main>
+
+    <!-- Material Design -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/2.4.2/chroma.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vibrant.js/1.0.0/Vibrant.min.js"></script>
+    <script src="md3/script/monet.js"></script>
+    <script src="md3/script/material-you.js"></script>
+    <!-- App scripts -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker
+                .register('/sw.js')
+                .then(function () { console.log("Service Worker Registered"); });
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/serviceworker-cache-polyfill@4.0.0/index.js"></script>
+    <script src="/sw.js"></script>
+    <script src="app/script.js"></script>
+    <script src="app/notes.js"></script>
+    <script src="app/main.js"></script>
+</body>
+
+</html>
